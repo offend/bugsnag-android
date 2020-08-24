@@ -9,7 +9,7 @@ app_location = ENV['APP_LOCATION']
 $api_key = "a35a2a72bd230ac0aa0f52715bbdc6aa"
 
 After do |scenario|
-  $driver.reset
+  $driver.reset_with_timeout
 end
 
 Before('@skip_above_android_8') do |scenario|

@@ -15,7 +15,7 @@ internal class AutoSessionScenario(config: Configuration,
         super.run()
         config.autoTrackSessions = true
         Bugsnag.start(context, config)
-        Bugsnag.setUser("123", "user@example.com", "Joe Bloggs")
+        //Bugsnag.setUser("123", "user@example.com", "Joe Bloggs")
         context.startActivity(Intent("com.bugsnag.android.mazerunner.UPDATE_CONTEXT"))
     }
 

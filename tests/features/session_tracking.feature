@@ -7,9 +7,6 @@ Scenario: Automatic Session Tracking sends
     And the payload field "notifier.name" equals "Android Bugsnag Notifier"
     And the payload field "sessions" is an array with 1 elements
     And the payload field "device.id" is not null
-    And the session "user.id" equals "123"
-    And the session "user.email" equals "user@example.com"
-    And the session "user.name" equals "Joe Bloggs"
     And the session "id" is not null
     And the session "startedAt" is not null
 

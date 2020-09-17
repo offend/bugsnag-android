@@ -1,4 +1,4 @@
-package com.bugsnag.android;
+package com.bugsnag.android.mazerunner;
 
 import com.bugsnag.android.AppWithState;
 import com.bugsnag.android.Configuration;
@@ -11,6 +11,7 @@ import com.bugsnag.android.EventPayload;
 import com.bugsnag.android.ImmutableConfig;
 import com.bugsnag.android.ImmutableConfigKt;
 import com.bugsnag.android.NoopLogger;
+import com.bugsnag.android.Session;
 
 import androidx.annotation.NonNull;
 

@@ -1,7 +1,7 @@
 package com.bugsnag.android
 
-import com.bugsnag.android.JavaHooks.generateAppWithState
-import com.bugsnag.android.JavaHooks.generateDeviceWithState
+import com.bugsnag.android.mazerunner.JavaHooks.generateAppWithState
+import com.bugsnag.android.mazerunner.JavaHooks.generateDeviceWithState
 import java.lang.Thread
 
 /**

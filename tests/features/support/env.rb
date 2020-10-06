@@ -8,10 +8,6 @@ app_location = ENV['APP_LOCATION']
 # Set this explicitly
 $api_key = "a35a2a72bd230ac0aa0f52715bbdc6aa"
 
-After do |scenario|
-  $driver.reset
-end
-
 Before('@skip_above_android_8') do |scenario|
   skip_this_scenario("Skipping scenario") if %w[ANDROID_9_0 ANDROID_10_0].include? bs_device
 end
@@ -30,11 +26,6 @@ end
 
 Before('@skip_android_8_1') do |scenario|
   skip_this_scenario("Skipping scenario") if %w[ANDROID_8_1].include? bs_device
-end
-
-AfterConfiguration do |config|
-  AppAutomateDriver.new(bs_username, bs_access_key, bs_local_id, bs_device, app_location)
-  $driver.start_driver
 end
 
 at_exit do

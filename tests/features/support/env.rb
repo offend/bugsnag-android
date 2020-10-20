@@ -37,10 +37,7 @@ end
 AfterConfiguration do |config|
   AppAutomateDriver.new(bs_username, bs_access_key, bs_local_id, bs_device, app_location)
   $driver.start_driver
-  pp "APPIUM SERVER_STATUS"
-  pp $driver.appium_server_status
-  pp "CAPS"
-  pp $driver.caps
+  pp $driver
 
 end
 

@@ -39,6 +39,8 @@ AfterConfiguration do |config|
   $driver.start_driver
   pp "APPIUM SERVER_STATUS"
   pp $driver.appium_server_status
+  pp "CAPS"
+  pp $driver.caps
 
 end
 

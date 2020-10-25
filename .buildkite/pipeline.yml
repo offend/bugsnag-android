@@ -49,7 +49,6 @@ steps:
   - wait
 
   - label: ':android: Android 5 end-to-end tests'
-    depends_on: "fixture-apk"
     timeout_in_minutes: 60
     plugins:
       artifacts#v1.2.0:
@@ -61,114 +60,10 @@ steps:
       APP_LOCATION: "/app/build/fixture.apk"
     concurrency: 10
     concurrency_group: 'browserstack-app'
-
-  - label: ':android: Android 6 end-to-end tests'
-    depends_on: "fixture-apk"
-    timeout_in_minutes: 60
-    plugins:
-      artifacts#v1.2.0:
-        download: "build/fixture.apk"
-      docker-compose#v3.3.0:
-        run: android-maze-runner
-        command:
-        - "--app=/app/build/fixture.apk"
-        - "--farm=bs"
-        - "--device=ANDROID_6_0"
-        - "--username=$BROWSER_STACK_USERNAME"
-        - "--access-key=$BROWSER_STACK_ACCESS_KEY"
-    concurrency: 10
-    concurrency_group: 'browserstack-app'
-
-  - label: ':android: Android 7 end-to-end tests'
-    depends_on: "fixture-apk"
-    timeout_in_minutes: 60
-    plugins:
-      artifacts#v1.2.0:
-        download: "build/fixture.apk"
-      docker-compose#v3.3.0:
-        run: android-maze-runner
-        command:
-          - "--app=/app/build/fixture.apk"
-          - "--farm=bs"
-          - "--device=ANDROID_7_1"
-          - "--username=$BROWSER_STACK_USERNAME"
-          - "--access-key=$BROWSER_STACK_ACCESS_KEY"
-    concurrency: 10
-    concurrency_group: 'browserstack-app'
-
-  - label: ':android: Android 8.0 end-to-end tests'
-    depends_on: "fixture-apk"
-    timeout_in_minutes: 60
-    plugins:
-      artifacts#v1.2.0:
-        download: "build/fixture.apk"
-      docker-compose#v3.3.0:
-        run: android-maze-runner
-        command:
-          - "--app=/app/build/fixture.apk"
-          - "--farm=bs"
-          - "--device=ANDROID_8_0"
-          - "--username=$BROWSER_STACK_USERNAME"
-          - "--access-key=$BROWSER_STACK_ACCESS_KEY"
-    concurrency: 10
-    concurrency_group: 'browserstack-app'
     soft_fail:
       - exit_status: "*"
 
-  - label: ':android: Android 8.1 end-to-end tests'
-    depends_on: "fixture-apk"
-    timeout_in_minutes: 60
-    plugins:
-      artifacts#v1.2.0:
-        download: "build/fixture.apk"
-      docker-compose#v3.3.0:
-        run: android-maze-runner
-        command:
-          - "--app=/app/build/fixture.apk"
-          - "--farm=bs"
-          - "--device=ANDROID_8_1"
-          - "--username=$BROWSER_STACK_USERNAME"
-          - "--access-key=$BROWSER_STACK_ACCESS_KEY"
-    concurrency: 10
-    concurrency_group: 'browserstack-app'
-    soft_fail:
-      - exit_status: "*"
-
-  - label: ':android: Android 9 end-to-end tests'
-    depends_on: "fixture-apk"
-    timeout_in_minutes: 60
-    plugins:
-      artifacts#v1.2.0:
-        download: "build/fixture.apk"
-      docker-compose#v3.3.0:
-        run: android-maze-runner
-        command:
-          - "--app=/app/build/fixture.apk"
-          - "--farm=bs"
-          - "--device=ANDROID_9_0"
-          - "--username=$BROWSER_STACK_USERNAME"
-          - "--access-key=$BROWSER_STACK_ACCESS_KEY"
-    concurrency: 10
-    concurrency_group: 'browserstack-app'
-
-  - wait
-
-  - label: ':android: Android 5 end-to-end tests'
-    depends_on: "fixture-apk"
-    timeout_in_minutes: 60
-    plugins:
-      artifacts#v1.2.0:
-        download: "build/fixture.apk"
-      docker-compose#v3.3.0:
-        run: android-maze-runner
-    env:
-      DEVICE_TYPE: "ANDROID_5_0"
-      APP_LOCATION: "/app/build/fixture.apk"
-    concurrency: 10
-    concurrency_group: 'browserstack-app'
-
   - label: ':android: Android 6 end-to-end tests'
-    depends_on: "fixture-apk"
     timeout_in_minutes: 60
     plugins:
       artifacts#v1.2.0:
@@ -183,9 +78,10 @@ steps:
           - "--access-key=$BROWSER_STACK_ACCESS_KEY"
     concurrency: 10
     concurrency_group: 'browserstack-app'
+    soft_fail:
+      - exit_status: "*"
 
   - label: ':android: Android 7 end-to-end tests'
-    depends_on: "fixture-apk"
     timeout_in_minutes: 60
     plugins:
       artifacts#v1.2.0:
@@ -200,9 +96,10 @@ steps:
           - "--access-key=$BROWSER_STACK_ACCESS_KEY"
     concurrency: 10
     concurrency_group: 'browserstack-app'
+    soft_fail:
+      - exit_status: "*"
 
   - label: ':android: Android 8.0 end-to-end tests'
-    depends_on: "fixture-apk"
     timeout_in_minutes: 60
     plugins:
       artifacts#v1.2.0:
@@ -221,7 +118,6 @@ steps:
       - exit_status: "*"
 
   - label: ':android: Android 8.1 end-to-end tests'
-    depends_on: "fixture-apk"
     timeout_in_minutes: 60
     plugins:
       artifacts#v1.2.0:
@@ -240,7 +136,6 @@ steps:
       - exit_status: "*"
 
   - label: ':android: Android 9 end-to-end tests'
-    depends_on: "fixture-apk"
     timeout_in_minutes: 60
     plugins:
       artifacts#v1.2.0:
@@ -255,11 +150,12 @@ steps:
           - "--access-key=$BROWSER_STACK_ACCESS_KEY"
     concurrency: 10
     concurrency_group: 'browserstack-app'
+    soft_fail:
+      - exit_status: "*"
 
   - wait
 
   - label: ':android: Android 5 end-to-end tests'
-    depends_on: "fixture-apk"
     timeout_in_minutes: 60
     plugins:
       artifacts#v1.2.0:
@@ -271,9 +167,10 @@ steps:
       APP_LOCATION: "/app/build/fixture.apk"
     concurrency: 10
     concurrency_group: 'browserstack-app'
+    soft_fail:
+      - exit_status: "*"
 
   - label: ':android: Android 6 end-to-end tests'
-    depends_on: "fixture-apk"
     timeout_in_minutes: 60
     plugins:
       artifacts#v1.2.0:
@@ -288,9 +185,10 @@ steps:
           - "--access-key=$BROWSER_STACK_ACCESS_KEY"
     concurrency: 10
     concurrency_group: 'browserstack-app'
+    soft_fail:
+      - exit_status: "*"
 
   - label: ':android: Android 7 end-to-end tests'
-    depends_on: "fixture-apk"
     timeout_in_minutes: 60
     plugins:
       artifacts#v1.2.0:
@@ -305,9 +203,10 @@ steps:
           - "--access-key=$BROWSER_STACK_ACCESS_KEY"
     concurrency: 10
     concurrency_group: 'browserstack-app'
+    soft_fail:
+      - exit_status: "*"
 
   - label: ':android: Android 8.0 end-to-end tests'
-    depends_on: "fixture-apk"
     timeout_in_minutes: 60
     plugins:
       artifacts#v1.2.0:
@@ -326,7 +225,6 @@ steps:
       - exit_status: "*"
 
   - label: ':android: Android 8.1 end-to-end tests'
-    depends_on: "fixture-apk"
     timeout_in_minutes: 60
     plugins:
       artifacts#v1.2.0:
@@ -345,7 +243,6 @@ steps:
       - exit_status: "*"
 
   - label: ':android: Android 9 end-to-end tests'
-    depends_on: "fixture-apk"
     timeout_in_minutes: 60
     plugins:
       artifacts#v1.2.0:
@@ -360,11 +257,12 @@ steps:
           - "--access-key=$BROWSER_STACK_ACCESS_KEY"
     concurrency: 10
     concurrency_group: 'browserstack-app'
+    soft_fail:
+      - exit_status: "*"
 
   - wait
 
   - label: ':android: Android 5 end-to-end tests'
-    depends_on: "fixture-apk"
     timeout_in_minutes: 60
     plugins:
       artifacts#v1.2.0:
@@ -376,9 +274,10 @@ steps:
       APP_LOCATION: "/app/build/fixture.apk"
     concurrency: 10
     concurrency_group: 'browserstack-app'
+    soft_fail:
+      - exit_status: "*"
 
   - label: ':android: Android 6 end-to-end tests'
-    depends_on: "fixture-apk"
     timeout_in_minutes: 60
     plugins:
       artifacts#v1.2.0:
@@ -393,9 +292,10 @@ steps:
           - "--access-key=$BROWSER_STACK_ACCESS_KEY"
     concurrency: 10
     concurrency_group: 'browserstack-app'
+    soft_fail:
+      - exit_status: "*"
 
   - label: ':android: Android 7 end-to-end tests'
-    depends_on: "fixture-apk"
     timeout_in_minutes: 60
     plugins:
       artifacts#v1.2.0:
@@ -410,9 +310,10 @@ steps:
           - "--access-key=$BROWSER_STACK_ACCESS_KEY"
     concurrency: 10
     concurrency_group: 'browserstack-app'
+    soft_fail:
+      - exit_status: "*"
 
   - label: ':android: Android 8.0 end-to-end tests'
-    depends_on: "fixture-apk"
     timeout_in_minutes: 60
     plugins:
       artifacts#v1.2.0:
@@ -431,7 +332,6 @@ steps:
       - exit_status: "*"
 
   - label: ':android: Android 8.1 end-to-end tests'
-    depends_on: "fixture-apk"
     timeout_in_minutes: 60
     plugins:
       artifacts#v1.2.0:
@@ -450,7 +350,6 @@ steps:
       - exit_status: "*"
 
   - label: ':android: Android 9 end-to-end tests'
-    depends_on: "fixture-apk"
     timeout_in_minutes: 60
     plugins:
       artifacts#v1.2.0:
@@ -465,11 +364,12 @@ steps:
           - "--access-key=$BROWSER_STACK_ACCESS_KEY"
     concurrency: 10
     concurrency_group: 'browserstack-app'
+    soft_fail:
+      - exit_status: "*"
 
   - wait
 
   - label: ':android: Android 5 end-to-end tests'
-    depends_on: "fixture-apk"
     timeout_in_minutes: 60
     plugins:
       artifacts#v1.2.0:
@@ -481,9 +381,10 @@ steps:
       APP_LOCATION: "/app/build/fixture.apk"
     concurrency: 10
     concurrency_group: 'browserstack-app'
+    soft_fail:
+      - exit_status: "*"
 
   - label: ':android: Android 6 end-to-end tests'
-    depends_on: "fixture-apk"
     timeout_in_minutes: 60
     plugins:
       artifacts#v1.2.0:
@@ -498,9 +399,10 @@ steps:
           - "--access-key=$BROWSER_STACK_ACCESS_KEY"
     concurrency: 10
     concurrency_group: 'browserstack-app'
+    soft_fail:
+      - exit_status: "*"
 
   - label: ':android: Android 7 end-to-end tests'
-    depends_on: "fixture-apk"
     timeout_in_minutes: 60
     plugins:
       artifacts#v1.2.0:
@@ -515,9 +417,10 @@ steps:
           - "--access-key=$BROWSER_STACK_ACCESS_KEY"
     concurrency: 10
     concurrency_group: 'browserstack-app'
+    soft_fail:
+      - exit_status: "*"
 
   - label: ':android: Android 8.0 end-to-end tests'
-    depends_on: "fixture-apk"
     timeout_in_minutes: 60
     plugins:
       artifacts#v1.2.0:
@@ -536,7 +439,6 @@ steps:
       - exit_status: "*"
 
   - label: ':android: Android 8.1 end-to-end tests'
-    depends_on: "fixture-apk"
     timeout_in_minutes: 60
     plugins:
       artifacts#v1.2.0:
@@ -555,7 +457,6 @@ steps:
       - exit_status: "*"
 
   - label: ':android: Android 9 end-to-end tests'
-    depends_on: "fixture-apk"
     timeout_in_minutes: 60
     plugins:
       artifacts#v1.2.0:
@@ -570,11 +471,12 @@ steps:
           - "--access-key=$BROWSER_STACK_ACCESS_KEY"
     concurrency: 10
     concurrency_group: 'browserstack-app'
+    soft_fail:
+      - exit_status: "*"
 
   - wait
 
   - label: ':android: Android 5 end-to-end tests'
-    depends_on: "fixture-apk"
     timeout_in_minutes: 60
     plugins:
       artifacts#v1.2.0:
@@ -586,9 +488,10 @@ steps:
       APP_LOCATION: "/app/build/fixture.apk"
     concurrency: 10
     concurrency_group: 'browserstack-app'
+    soft_fail:
+      - exit_status: "*"
 
   - label: ':android: Android 6 end-to-end tests'
-    depends_on: "fixture-apk"
     timeout_in_minutes: 60
     plugins:
       artifacts#v1.2.0:
@@ -603,9 +506,10 @@ steps:
           - "--access-key=$BROWSER_STACK_ACCESS_KEY"
     concurrency: 10
     concurrency_group: 'browserstack-app'
+    soft_fail:
+      - exit_status: "*"
 
   - label: ':android: Android 7 end-to-end tests'
-    depends_on: "fixture-apk"
     timeout_in_minutes: 60
     plugins:
       artifacts#v1.2.0:
@@ -620,9 +524,10 @@ steps:
           - "--access-key=$BROWSER_STACK_ACCESS_KEY"
     concurrency: 10
     concurrency_group: 'browserstack-app'
+    soft_fail:
+      - exit_status: "*"
 
   - label: ':android: Android 8.0 end-to-end tests'
-    depends_on: "fixture-apk"
     timeout_in_minutes: 60
     plugins:
       artifacts#v1.2.0:
@@ -641,7 +546,6 @@ steps:
       - exit_status: "*"
 
   - label: ':android: Android 8.1 end-to-end tests'
-    depends_on: "fixture-apk"
     timeout_in_minutes: 60
     plugins:
       artifacts#v1.2.0:
@@ -660,7 +564,6 @@ steps:
       - exit_status: "*"
 
   - label: ':android: Android 9 end-to-end tests'
-    depends_on: "fixture-apk"
     timeout_in_minutes: 60
     plugins:
       artifacts#v1.2.0:
@@ -675,11 +578,12 @@ steps:
           - "--access-key=$BROWSER_STACK_ACCESS_KEY"
     concurrency: 10
     concurrency_group: 'browserstack-app'
+    soft_fail:
+      - exit_status: "*"
 
   - wait
 
   - label: ':android: Android 5 end-to-end tests'
-    depends_on: "fixture-apk"
     timeout_in_minutes: 60
     plugins:
       artifacts#v1.2.0:
@@ -691,9 +595,10 @@ steps:
       APP_LOCATION: "/app/build/fixture.apk"
     concurrency: 10
     concurrency_group: 'browserstack-app'
+    soft_fail:
+      - exit_status: "*"
 
   - label: ':android: Android 6 end-to-end tests'
-    depends_on: "fixture-apk"
     timeout_in_minutes: 60
     plugins:
       artifacts#v1.2.0:
@@ -708,9 +613,10 @@ steps:
           - "--access-key=$BROWSER_STACK_ACCESS_KEY"
     concurrency: 10
     concurrency_group: 'browserstack-app'
+    soft_fail:
+      - exit_status: "*"
 
   - label: ':android: Android 7 end-to-end tests'
-    depends_on: "fixture-apk"
     timeout_in_minutes: 60
     plugins:
       artifacts#v1.2.0:
@@ -725,9 +631,10 @@ steps:
           - "--access-key=$BROWSER_STACK_ACCESS_KEY"
     concurrency: 10
     concurrency_group: 'browserstack-app'
+    soft_fail:
+      - exit_status: "*"
 
   - label: ':android: Android 8.0 end-to-end tests'
-    depends_on: "fixture-apk"
     timeout_in_minutes: 60
     plugins:
       artifacts#v1.2.0:
@@ -746,7 +653,6 @@ steps:
       - exit_status: "*"
 
   - label: ':android: Android 8.1 end-to-end tests'
-    depends_on: "fixture-apk"
     timeout_in_minutes: 60
     plugins:
       artifacts#v1.2.0:
@@ -765,7 +671,6 @@ steps:
       - exit_status: "*"
 
   - label: ':android: Android 9 end-to-end tests'
-    depends_on: "fixture-apk"
     timeout_in_minutes: 60
     plugins:
       artifacts#v1.2.0:
@@ -780,11 +685,12 @@ steps:
           - "--access-key=$BROWSER_STACK_ACCESS_KEY"
     concurrency: 10
     concurrency_group: 'browserstack-app'
+    soft_fail:
+      - exit_status: "*"
 
   - wait
 
   - label: ':android: Android 5 end-to-end tests'
-    depends_on: "fixture-apk"
     timeout_in_minutes: 60
     plugins:
       artifacts#v1.2.0:
@@ -796,9 +702,10 @@ steps:
       APP_LOCATION: "/app/build/fixture.apk"
     concurrency: 10
     concurrency_group: 'browserstack-app'
+    soft_fail:
+      - exit_status: "*"
 
   - label: ':android: Android 6 end-to-end tests'
-    depends_on: "fixture-apk"
     timeout_in_minutes: 60
     plugins:
       artifacts#v1.2.0:
@@ -813,9 +720,10 @@ steps:
           - "--access-key=$BROWSER_STACK_ACCESS_KEY"
     concurrency: 10
     concurrency_group: 'browserstack-app'
+    soft_fail:
+      - exit_status: "*"
 
   - label: ':android: Android 7 end-to-end tests'
-    depends_on: "fixture-apk"
     timeout_in_minutes: 60
     plugins:
       artifacts#v1.2.0:
@@ -830,9 +738,10 @@ steps:
           - "--access-key=$BROWSER_STACK_ACCESS_KEY"
     concurrency: 10
     concurrency_group: 'browserstack-app'
+    soft_fail:
+      - exit_status: "*"
 
   - label: ':android: Android 8.0 end-to-end tests'
-    depends_on: "fixture-apk"
     timeout_in_minutes: 60
     plugins:
       artifacts#v1.2.0:
@@ -851,7 +760,6 @@ steps:
       - exit_status: "*"
 
   - label: ':android: Android 8.1 end-to-end tests'
-    depends_on: "fixture-apk"
     timeout_in_minutes: 60
     plugins:
       artifacts#v1.2.0:
@@ -870,7 +778,6 @@ steps:
       - exit_status: "*"
 
   - label: ':android: Android 9 end-to-end tests'
-    depends_on: "fixture-apk"
     timeout_in_minutes: 60
     plugins:
       artifacts#v1.2.0:
@@ -885,11 +792,12 @@ steps:
           - "--access-key=$BROWSER_STACK_ACCESS_KEY"
     concurrency: 10
     concurrency_group: 'browserstack-app'
+    soft_fail:
+      - exit_status: "*"
 
   - wait
 
   - label: ':android: Android 5 end-to-end tests'
-    depends_on: "fixture-apk"
     timeout_in_minutes: 60
     plugins:
       artifacts#v1.2.0:
@@ -901,9 +809,10 @@ steps:
       APP_LOCATION: "/app/build/fixture.apk"
     concurrency: 10
     concurrency_group: 'browserstack-app'
+    soft_fail:
+      - exit_status: "*"
 
   - label: ':android: Android 6 end-to-end tests'
-    depends_on: "fixture-apk"
     timeout_in_minutes: 60
     plugins:
       artifacts#v1.2.0:
@@ -918,9 +827,10 @@ steps:
           - "--access-key=$BROWSER_STACK_ACCESS_KEY"
     concurrency: 10
     concurrency_group: 'browserstack-app'
+    soft_fail:
+      - exit_status: "*"
 
   - label: ':android: Android 7 end-to-end tests'
-    depends_on: "fixture-apk"
     timeout_in_minutes: 60
     plugins:
       artifacts#v1.2.0:
@@ -935,9 +845,10 @@ steps:
           - "--access-key=$BROWSER_STACK_ACCESS_KEY"
     concurrency: 10
     concurrency_group: 'browserstack-app'
+    soft_fail:
+      - exit_status: "*"
 
   - label: ':android: Android 8.0 end-to-end tests'
-    depends_on: "fixture-apk"
     timeout_in_minutes: 60
     plugins:
       artifacts#v1.2.0:
@@ -956,7 +867,6 @@ steps:
       - exit_status: "*"
 
   - label: ':android: Android 8.1 end-to-end tests'
-    depends_on: "fixture-apk"
     timeout_in_minutes: 60
     plugins:
       artifacts#v1.2.0:
@@ -975,7 +885,6 @@ steps:
       - exit_status: "*"
 
   - label: ':android: Android 9 end-to-end tests'
-    depends_on: "fixture-apk"
     timeout_in_minutes: 60
     plugins:
       artifacts#v1.2.0:
@@ -990,11 +899,12 @@ steps:
           - "--access-key=$BROWSER_STACK_ACCESS_KEY"
     concurrency: 10
     concurrency_group: 'browserstack-app'
+    soft_fail:
+      - exit_status: "*"
 
   - wait
 
   - label: ':android: Android 5 end-to-end tests'
-    depends_on: "fixture-apk"
     timeout_in_minutes: 60
     plugins:
       artifacts#v1.2.0:
@@ -1006,9 +916,10 @@ steps:
       APP_LOCATION: "/app/build/fixture.apk"
     concurrency: 10
     concurrency_group: 'browserstack-app'
+    soft_fail:
+      - exit_status: "*"
 
   - label: ':android: Android 6 end-to-end tests'
-    depends_on: "fixture-apk"
     timeout_in_minutes: 60
     plugins:
       artifacts#v1.2.0:
@@ -1023,9 +934,10 @@ steps:
           - "--access-key=$BROWSER_STACK_ACCESS_KEY"
     concurrency: 10
     concurrency_group: 'browserstack-app'
+    soft_fail:
+      - exit_status: "*"
 
   - label: ':android: Android 7 end-to-end tests'
-    depends_on: "fixture-apk"
     timeout_in_minutes: 60
     plugins:
       artifacts#v1.2.0:
@@ -1040,9 +952,10 @@ steps:
           - "--access-key=$BROWSER_STACK_ACCESS_KEY"
     concurrency: 10
     concurrency_group: 'browserstack-app'
+    soft_fail:
+      - exit_status: "*"
 
   - label: ':android: Android 8.0 end-to-end tests'
-    depends_on: "fixture-apk"
     timeout_in_minutes: 60
     plugins:
       artifacts#v1.2.0:
@@ -1061,7 +974,6 @@ steps:
       - exit_status: "*"
 
   - label: ':android: Android 8.1 end-to-end tests'
-    depends_on: "fixture-apk"
     timeout_in_minutes: 60
     plugins:
       artifacts#v1.2.0:
@@ -1080,7 +992,6 @@ steps:
       - exit_status: "*"
 
   - label: ':android: Android 9 end-to-end tests'
-    depends_on: "fixture-apk"
     timeout_in_minutes: 60
     plugins:
       artifacts#v1.2.0:
@@ -1095,3 +1006,112 @@ steps:
           - "--access-key=$BROWSER_STACK_ACCESS_KEY"
     concurrency: 10
     concurrency_group: 'browserstack-app'
+    soft_fail:
+      - exit_status: "*"
+
+  - wait
+
+  - label: ':android: Android 5 end-to-end tests'
+    timeout_in_minutes: 60
+    plugins:
+      artifacts#v1.2.0:
+        download: "build/fixture.apk"
+      docker-compose#v3.3.0:
+        run: android-maze-runner
+    env:
+      DEVICE_TYPE: "ANDROID_5_0"
+      APP_LOCATION: "/app/build/fixture.apk"
+    concurrency: 10
+    concurrency_group: 'browserstack-app'
+    soft_fail:
+      - exit_status: "*"
+
+  - label: ':android: Android 6 end-to-end tests'
+    timeout_in_minutes: 60
+    plugins:
+      artifacts#v1.2.0:
+        download: "build/fixture.apk"
+      docker-compose#v3.3.0:
+        run: android-maze-runner
+        command:
+          - "--app=/app/build/fixture.apk"
+          - "--farm=bs"
+          - "--device=ANDROID_6_0"
+          - "--username=$BROWSER_STACK_USERNAME"
+          - "--access-key=$BROWSER_STACK_ACCESS_KEY"
+    concurrency: 10
+    concurrency_group: 'browserstack-app'
+    soft_fail:
+      - exit_status: "*"
+
+  - label: ':android: Android 7 end-to-end tests'
+    timeout_in_minutes: 60
+    plugins:
+      artifacts#v1.2.0:
+        download: "build/fixture.apk"
+      docker-compose#v3.3.0:
+        run: android-maze-runner
+        command:
+          - "--app=/app/build/fixture.apk"
+          - "--farm=bs"
+          - "--device=ANDROID_7_1"
+          - "--username=$BROWSER_STACK_USERNAME"
+          - "--access-key=$BROWSER_STACK_ACCESS_KEY"
+    concurrency: 10
+    concurrency_group: 'browserstack-app'
+    soft_fail:
+      - exit_status: "*"
+
+  - label: ':android: Android 8.0 end-to-end tests'
+    timeout_in_minutes: 60
+    plugins:
+      artifacts#v1.2.0:
+        download: "build/fixture.apk"
+      docker-compose#v3.3.0:
+        run: android-maze-runner
+        command:
+          - "--app=/app/build/fixture.apk"
+          - "--farm=bs"
+          - "--device=ANDROID_8_0"
+          - "--username=$BROWSER_STACK_USERNAME"
+          - "--access-key=$BROWSER_STACK_ACCESS_KEY"
+    concurrency: 10
+    concurrency_group: 'browserstack-app'
+    soft_fail:
+      - exit_status: "*"
+
+  - label: ':android: Android 8.1 end-to-end tests'
+    timeout_in_minutes: 60
+    plugins:
+      artifacts#v1.2.0:
+        download: "build/fixture.apk"
+      docker-compose#v3.3.0:
+        run: android-maze-runner
+        command:
+          - "--app=/app/build/fixture.apk"
+          - "--farm=bs"
+          - "--device=ANDROID_8_1"
+          - "--username=$BROWSER_STACK_USERNAME"
+          - "--access-key=$BROWSER_STACK_ACCESS_KEY"
+    concurrency: 10
+    concurrency_group: 'browserstack-app'
+    soft_fail:
+      - exit_status: "*"
+
+  - label: ':android: Android 9 end-to-end tests'
+    timeout_in_minutes: 60
+    plugins:
+      artifacts#v1.2.0:
+        download: "build/fixture.apk"
+      docker-compose#v3.3.0:
+        run: android-maze-runner
+        command:
+          - "--app=/app/build/fixture.apk"
+          - "--farm=bs"
+          - "--device=ANDROID_9_0"
+          - "--username=$BROWSER_STACK_USERNAME"
+          - "--access-key=$BROWSER_STACK_ACCESS_KEY"
+    concurrency: 10
+    concurrency_group: 'browserstack-app'
+    soft_fail:
+      - exit_status: "*"

@@ -31,6 +31,7 @@ internal class DefaultDelivery(private val connectivity: Connectivity?, val logg
     ): DeliveryStatus {
 
         if (connectivity != null && !connectivity.hasNetworkConnection()) {
+            logger.i("Returning DeliveryStatus.UNDELIVERED - !connectivity.hasNetworkConnection()")
             return DeliveryStatus.UNDELIVERED
         }
         var conn: HttpURLConnection? = null

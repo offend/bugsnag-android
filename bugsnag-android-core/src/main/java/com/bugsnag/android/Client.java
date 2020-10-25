@@ -120,6 +120,11 @@ public class Client implements MetadataAware, CallbackAware, UserAware {
         connectivity = new ConnectivityCompat(appContext, new Function2<Boolean, String, Unit>() {
             @Override
             public Unit invoke(Boolean hasConnection, String networkState) {
+                java.util.logging.Logger l = java.util.logging.Logger.getLogger(this.getClass().getName());
+                l.info("Connectivity changed:");
+                l.info("  hasConnection = " + hasConnection);
+                l.info("  networkState = " + networkState);
+                
                 Map<String, Object> data = new HashMap<>();
                 data.put("hasConnection", hasConnection);
                 data.put("networkState", networkState);

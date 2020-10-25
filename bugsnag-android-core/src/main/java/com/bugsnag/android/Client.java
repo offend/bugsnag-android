@@ -124,7 +124,7 @@ public class Client implements MetadataAware, CallbackAware, UserAware {
                 l.info("Connectivity changed:");
                 l.info("  hasConnection = " + hasConnection);
                 l.info("  networkState = " + networkState);
-                
+
                 Map<String, Object> data = new HashMap<>();
                 data.put("hasConnection", hasConnection);
                 data.put("networkState", networkState);

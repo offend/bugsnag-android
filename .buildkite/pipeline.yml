@@ -61,7 +61,6 @@ steps:
           - "--device=ANDROID_8_1"
           - "--username=$BROWSER_STACK_USERNAME"
           - "--access-key=$BROWSER_STACK_ACCESS_KEY"
-          - features/manual_session_scenario.feature
     concurrency: 10
     concurrency_group: 'browserstack-app'
     soft_fail:

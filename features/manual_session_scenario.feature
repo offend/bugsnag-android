@@ -1,3 +1,5 @@
+Feature: Repeat
+
 Scenario: Manual Session sends
 When I run "ManualSessionScenario"
 And I wait to receive a request

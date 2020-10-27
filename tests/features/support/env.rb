@@ -33,7 +33,7 @@ Before('@skip_android_8_1') do |scenario|
 end
 
 AfterConfiguration do |config|
-  AppAutomateDriver.new(bs_username, bs_access_key, bs_local_id, bs_device, app_location, :id, {'browserstack.appium_version' => "1.14.0"})
+  AppAutomateDriver.new(bs_username, bs_access_key, bs_local_id, bs_device, app_location, :id, {'browserstack.appium_version' => "1.15.0"})
   $driver.start_driver
   pp $driver
 end

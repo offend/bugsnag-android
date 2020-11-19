@@ -15,7 +15,18 @@ static sigset_t bsg_anr_sigmask;
 struct sigaction bsg_sigquit_sigaction_previous;
 
 void bsg_handle_sigquit(int signum, siginfo_t *info, void *user_context) {
-  __android_log_write(ANDROID_LOG_ERROR, "Bugsnag", "Bugsnag received SIGQUIT");
+  // Invoke previous handler, if a custom handler has been set
+  // This can be conditionally switched off on certain platforms (e.g. Unity) where
+  // this behaviour is not desirable due to Unity's implementation failing with a SIGSEGV
+  struct sigaction previous = bsg_sigquit_sigaction_previous;
+  if (previous.sa_flags & SA_SIGINFO) {
+    previous.sa_sigaction(SIGQUIT, info, user_context);
+  } else if (previous.sa_handler == SIG_DFL) {
+    // Do nothing, the default action is nothing
+  } else if (previous.sa_handler != SIG_IGN) {
+    void (*previous_handler)(int) = previous.sa_handler;
+    previous_handler(signum);
+  }
 }
 
 /**

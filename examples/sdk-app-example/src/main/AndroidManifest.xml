@@ -1,20 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
   xmlns:tools="http://schemas.android.com/tools"
-  package="com.bugsnag.android.example"
-  android:versionCode="345"
-  android:versionName="2.0">
+  package="com.foo.android.example"
+  android:versionCode="420"
+  android:versionName="420">
+<!-- Increase versionCode/versionName here -->
 
   <uses-permission android:name="android.permission.INTERNET" />
   <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
   <application
-    android:name=".ExampleApplication"
+    android:name="com.foo.android.example.ExampleApplication"
     android:icon="@mipmap/ic_launcher"
     android:label="@string/app_name"
     tools:ignore="AllowBackup,GoogleAppIndexingWarning">
     <activity
-      android:name=".ExampleActivity"
+      android:name="com.foo.android.example.ExampleActivity"
       android:theme="@style/AppTheme"
       android:label="@string/app_name">
       <intent-filter>

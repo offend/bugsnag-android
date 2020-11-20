@@ -62,7 +62,7 @@ android {
             signingConfig signingConfigs.config
         }
     }
-    externalNativeBuild.cmake.path "CMakeLists.txt"
+//    externalNativeBuild.cmake.path "CMakeLists.txt"
 }
 
 dependencies {

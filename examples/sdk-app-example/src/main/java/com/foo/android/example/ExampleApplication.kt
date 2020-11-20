@@ -1,4 +1,4 @@
-package com.bugsnag.android.example
+package com.foo.android.example
 
 import android.app.Application
 import com.bugsnag.android.Bugsnag
@@ -7,20 +7,20 @@ import com.bugsnag.android.ErrorTypes
 
 class ExampleApplication : Application() {
 
-    companion object {
-        init {
+//    companion object {
+//        init {
 //            if you support API <= 17 you should uncomment this to load the bugsnag library
 //            before any libraries that link to it
 //            https://docs.bugsnag.com/platforms/android/#initialize-the-bugsnag-client
 //
 //            System.loadLibrary("bugsnag-ndk")
 //            System.loadLibrary("bugsnag-plugin-android-anr")
+//
+//            System.loadLibrary("entrypoint")
+//        }
+//    }
 
-            System.loadLibrary("entrypoint")
-        }
-    }
-
-    private external fun performNativeBugsnagSetup()
+//    private external fun performNativeBugsnagSetup()
 
     override fun onCreate() {
         super.onCreate()
@@ -31,7 +31,7 @@ class ExampleApplication : Application() {
         Bugsnag.start(this, config)
 
         // Initialise native callbacks
-        performNativeBugsnagSetup()
+//        performNativeBugsnagSetup()
     }
 
 }

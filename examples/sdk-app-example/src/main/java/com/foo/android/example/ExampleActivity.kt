@@ -1,4 +1,4 @@
-package com.bugsnag.android.example
+package com.foo.android.example
 
 import android.content.Intent
 import android.net.Uri
@@ -8,21 +8,22 @@ import android.view.View
 import android.widget.Toast
 import android.widget.Toast.LENGTH_SHORT
 import com.bugsnag.android.*
+import com.foo.android.example.R
 import com.example.foo.CrashyClass
 import java.lang.Thread
 import java.util.*
 
 class ExampleActivity : AppCompatActivity() {
 
-    companion object {
-        init {
-            System.loadLibrary("entrypoint")
-        }
-    }
-
-    private external fun doCrash()
-
-    private external fun notifyFromCXX()
+//    companion object {
+//        init {
+//            System.loadLibrary("entrypoint")
+//        }
+//    }
+//
+//    private external fun doCrash()
+//
+//    private external fun notifyFromCXX()
 
     public override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -33,7 +34,7 @@ class ExampleActivity : AppCompatActivity() {
         view.setOnClickListener(::crashUnhandled)
 
         val nativeBtn: View = findViewById(R.id.btn_native_crash)
-        nativeBtn.setOnClickListener { doCrash() }
+//        nativeBtn.setOnClickListener { doCrash() }
 
         findViewById<View>(R.id.btn_anr).setOnClickListener { Thread.sleep(10000) }
     }
@@ -67,7 +68,7 @@ class ExampleActivity : AppCompatActivity() {
      */
     @Suppress("UNUSED_PARAMETER")
     fun notifyNativeHandled(view: View) {
-        notifyFromCXX()
+//        notifyFromCXX()
     }
 
     /**

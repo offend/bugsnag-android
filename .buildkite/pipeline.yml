@@ -285,7 +285,6 @@ steps:
           - "--device=ANDROID_4_4"
           - "--username=$BROWSER_STACK_USERNAME"
           - "--access-key=$BROWSER_STACK_ACCESS_KEY"
-          - "--fail-fast"
     concurrency: 10
     concurrency_group: 'browserstack-app'
 
@@ -303,7 +302,6 @@ steps:
           - "--device=ANDROID_5_0"
           - "--username=$BROWSER_STACK_USERNAME"
           - "--access-key=$BROWSER_STACK_ACCESS_KEY"
-          - "--fail-fast"
     concurrency: 10
     concurrency_group: 'browserstack-app'
     soft_fail:
@@ -323,7 +321,6 @@ steps:
         - "--device=ANDROID_6_0"
         - "--username=$BROWSER_STACK_USERNAME"
         - "--access-key=$BROWSER_STACK_ACCESS_KEY"
-        - "--fail-fast"
     concurrency: 10
     concurrency_group: 'browserstack-app'
     #
@@ -346,7 +343,6 @@ steps:
           - "--device=ANDROID_7_1"
           - "--username=$BROWSER_STACK_USERNAME"
           - "--access-key=$BROWSER_STACK_ACCESS_KEY"
-          - "--fail-fast"
     concurrency: 10
     concurrency_group: 'browserstack-app'
     #
@@ -369,7 +365,6 @@ steps:
           - "--device=ANDROID_8_0"
           - "--username=$BROWSER_STACK_USERNAME"
           - "--access-key=$BROWSER_STACK_ACCESS_KEY"
-          - "--fail-fast"
     concurrency: 10
     concurrency_group: 'browserstack-app'
     soft_fail:
@@ -389,7 +384,6 @@ steps:
           - "--device=ANDROID_8_1"
           - "--username=$BROWSER_STACK_USERNAME"
           - "--access-key=$BROWSER_STACK_ACCESS_KEY"
-          - "--fail-fast"
     concurrency: 10
     concurrency_group: 'browserstack-app'
     soft_fail:
@@ -409,7 +403,6 @@ steps:
           - "--device=ANDROID_9_0"
           - "--username=$BROWSER_STACK_USERNAME"
           - "--access-key=$BROWSER_STACK_ACCESS_KEY"
-          - "--fail-fast"
     concurrency: 10
     concurrency_group: 'browserstack-app'
 
@@ -427,7 +420,6 @@ steps:
           - "--device=ANDROID_10_0"
           - "--username=$BROWSER_STACK_USERNAME"
           - "--access-key=$BROWSER_STACK_ACCESS_KEY"
-          - "--fail-fast"
     concurrency: 10
     concurrency_group: 'browserstack-app'
 
@@ -445,6 +437,5 @@ steps:
           - "--device=ANDROID_11_0"
           - "--username=$BROWSER_STACK_USERNAME"
           - "--access-key=$BROWSER_STACK_ACCESS_KEY"
-          - "--fail-fast"
     concurrency: 10
     concurrency_group: 'browserstack-app'

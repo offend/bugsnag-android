@@ -2,6 +2,12 @@
 # Set this explicitly
 $api_key = "a35a2a72bd230ac0aa0f52715bbdc6aa"
 
+AfterConfiguration do |_config|
+  MazeRunner.config.receive_no_requests_wait = 15
+  MazeRunner.config.receive_requests_wait = 15
+  MazeRunner.config.enforce_bugsnag_integrity = false
+end
+
 Before('@skip_above_android_8') do |scenario|
   skip_this_scenario("Skipping scenario") if MazeRunner.config.os_version >= 9
 end

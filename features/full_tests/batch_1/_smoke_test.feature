@@ -6,17 +6,17 @@ Scenario: Test handled Kotlin Exception
     When I run "HandledExceptionScenario"
     Then I wait to receive a request
     And the request is valid for the error reporting API version "4.0" for the "Android Bugsnag Notifier" notifier
-    And the payload field "events" is an array with 1 elements
+    And the error payload field "events" is an array with 1 elements
     And the exception "errorClass" equals "java.lang.RuntimeException"
     And the exception "message" equals "HandledExceptionScenario"
-    And the payload field "events.0.device.cpuAbi" is a non-empty array
+    And the error payload field "events.0.device.cpuAbi" is a non-empty array
 
 Scenario: Test Unhandled Java Exception with Session
     When I run "UnhandledExceptionJavaScenario" and relaunch the app
     And I configure Bugsnag for "UnhandledExceptionJavaScenario"
     And I wait to receive a request
     And the request is valid for the error reporting API version "4.0" for the "Android Bugsnag Notifier" notifier
-    And the payload field "events" is an array with 1 elements
+    And the error payload field "events" is an array with 1 elements
     And the exception "errorClass" equals "java.lang.RuntimeException"
     And the exception "message" equals "UnhandledExceptionJavaScenario"
 
@@ -44,7 +44,7 @@ Scenario: Manual Session sends
     When I run "ManualSessionScenario"
     And I wait to receive a request
     Then the request is valid for the session reporting API version "1.0" for the "Android Bugsnag Notifier" notifier
-    And the payload field "sessions" is an array with 1 elements
+    And the error payload field "sessions" is an array with 1 elements
     And the session "user.id" equals "123"
     And the session "user.email" equals "user@example.com"
     And the session "user.name" equals "Joe Bloggs"

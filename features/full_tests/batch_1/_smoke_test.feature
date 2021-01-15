@@ -4,7 +4,7 @@ Feature: Performs basic smoke tests to check that critical functionality is work
 
 Scenario: Test handled Kotlin Exception
     When I run "HandledExceptionScenario"
-    Then I wait to receive a request
+    Then I wait to receive an error
     And the request is valid for the error reporting API version "4.0" for the "Android Bugsnag Notifier" notifier
     And the error payload field "events" is an array with 1 elements
     And the exception "errorClass" equals "java.lang.RuntimeException"
@@ -14,7 +14,7 @@ Scenario: Test handled Kotlin Exception
 Scenario: Test Unhandled Java Exception with Session
     When I run "UnhandledExceptionJavaScenario" and relaunch the app
     And I configure Bugsnag for "UnhandledExceptionJavaScenario"
-    And I wait to receive a request
+    And I wait to receive an error
     And the request is valid for the error reporting API version "4.0" for the "Android Bugsnag Notifier" notifier
     And the error payload field "events" is an array with 1 elements
     And the exception "errorClass" equals "java.lang.RuntimeException"
@@ -22,7 +22,7 @@ Scenario: Test Unhandled Java Exception with Session
 
 Scenario: Notifying in C
     When I run "CXXNotifyScenario"
-    And I wait to receive a request
+    And I wait to receive an error
     Then the request payload contains a completed handled native report
     And the event "severity" equals "error"
     And the exception "errorClass" equals "Vitamin C deficiency"
@@ -32,7 +32,7 @@ Scenario: Notifying in C
 Scenario: Raise SIGSEGV
     When I run "CXXSigsegvScenario" and relaunch the app
     And I configure Bugsnag for "CXXSigsegvScenario"
-    And I wait to receive a request
+    And I wait to receive an error
     And the request payload contains a completed unhandled native report
     And the exception "errorClass" equals "SIGSEGV"
     And the exception "message" equals "Segmentation violation (invalid memory reference)"
@@ -42,7 +42,7 @@ Scenario: Raise SIGSEGV
 
 Scenario: Manual Session sends
     When I run "ManualSessionScenario"
-    And I wait to receive a request
+    And I wait to receive an error
     Then the request is valid for the session reporting API version "1.0" for the "Android Bugsnag Notifier" notifier
     And the error payload field "sessions" is an array with 1 elements
     And the session "user.id" equals "123"
@@ -58,7 +58,7 @@ Scenario: Sleeping the main thread with pending touch events when autoDetectAnrs
     And I tap the screen 3 times
     And I wait for 4 seconds
     And I clear any error dialogue
-    Then I wait to receive a request
+    Then I wait to receive an error
     And the request is valid for the error reporting API version "4.0" for the "Android Bugsnag Notifier" notifier
     And the exception "errorClass" equals "ANR"
     And the exception "message" starts with " Input dispatching timed out"

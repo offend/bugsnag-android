@@ -43,7 +43,7 @@ Scenario: Raise SIGSEGV
 Scenario: Manual Session sends
     When I run "ManualSessionScenario"
     And I wait to receive an error
-    Then the request is valid for the session reporting API version "1.0" for the "Android Bugsnag Notifier" notifier
+    Then the session is valid for the session reporting API version "1.0" for the "Android Bugsnag Notifier" notifier
     And the error payload field "sessions" is an array with 1 elements
     And the session "user.id" equals "123"
     And the session "user.email" equals "user@example.com"

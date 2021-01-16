@@ -23,7 +23,7 @@ Scenario: Test Unhandled Java Exception with Session
 Scenario: Notifying in C
     When I run "CXXNotifyScenario"
     And I wait to receive an error
-    Then the request payload contains a completed handled native report
+    Then the error payload contains a completed handled native report
     And the event "severity" equals "error"
     And the exception "errorClass" equals "Vitamin C deficiency"
     And the exception "message" equals "9 out of 10 adults do not get their 5-a-day"
@@ -33,7 +33,7 @@ Scenario: Raise SIGSEGV
     When I run "CXXSigsegvScenario" and relaunch the app
     And I configure Bugsnag for "CXXSigsegvScenario"
     And I wait to receive an error
-    And the request payload contains a completed unhandled native report
+    And the error payload contains a completed unhandled native report
     And the exception "errorClass" equals "SIGSEGV"
     And the exception "message" equals "Segmentation violation (invalid memory reference)"
     And the exception "type" equals "c"
